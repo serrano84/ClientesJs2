@@ -1,0 +1,21 @@
+<h2>Ala de Clientes</h2>
+<p>
+<span>Nombre:</span>
+<input type="text" [(ngModel)]="clientes.nombre" />
+</p>
+<p>
+<span>Apellido</span>
+<input type="text"  [(ngModel)]="clientes.apellido"/>
+</p>
+<p>
+<span>Rfc:</span>
+<input type="text" [(ngModel)]="clientes.rfc" />
+</p>
+<p>
+<span>Grupo:</span>
+<select [(ngModel)]="clientes.grupo">
+<option *ngFor="let gpo of grupos" value="{{gpo.id}}">{{gpo.nombre}}</option>
+</select>
+</p>
+
+<button (click)="this.agregar()">Guardar</button>

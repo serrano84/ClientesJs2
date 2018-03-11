@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ClientesService } from '../clientes.service';
 import { Cliente, Grupo } from  '../cliente.model';
 import {HttpService} from '../../../provider/http';
@@ -36,11 +35,14 @@ grupos : Grupo[];
 
   getDatos(){
     this.httpService.getDatosClientes().
-    subscribe(res=>{this.clientes = res;console.log(res)},
+    subscribe(res=>{this.clientes = res.json();
+      this.clienteService.agregarCliente(this.clientes);
+      this.clientes = this.clienteService.nuevoCliente();
+      console.log(res.json())},
     err=>{console.log(err)},
     ()=>{console.log("exit")});
     console.log("done");
-    this.clienteService.agregarCliente(this.clientes);
+
   }
 
 }

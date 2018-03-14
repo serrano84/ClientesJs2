@@ -38,6 +38,7 @@ export class ClientesService {
 
   nuevoCliente():Cliente{
     return {
+       id: this.clientes.length,
        nombre:'',
        apellido:'',
        rfc : '',
